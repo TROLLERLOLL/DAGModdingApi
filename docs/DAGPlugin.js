@@ -8,7 +8,7 @@ var DAGPlugin = function (hook, vm) {
   })
 };
 
-function initVersionSelector(vm) {
+function initVersionSelector() {
   // Version selector
   var versions = window.$docsify.versions;
   var selector = document.createElement('div');
