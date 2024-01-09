@@ -1,3 +1,3 @@
 <script>
-  window.location.reload();
+  window.location.replace(window.location.pathname + "/#/")
 </script>
