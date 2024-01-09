@@ -27,7 +27,7 @@ function initVersionSelector(vm) {
   `;
   
   // Adding event listener
-  var versionPath = (window.location.pathname && window.location.pathname.split('/')[1]) || defaultVersion;
+  var versionPath = (window.location.hash && window.location.hash.split("?id=")[0].split('/')[1]) || defaultVersion;
   selector.querySelector('select').value = versionPath;
   selector.querySelector('select').addEventListener('change', function () {
       updateVersion(this.value);
@@ -56,7 +56,6 @@ function initVersionSelector(vm) {
 })();
 
 (function() {
-  console.log(window.location.hash);
   if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') {
     var defaultVersion = window.$docsify.versions.find((v) => v.default).folder;
     window.location.replace(window.$docsify.home + '#/' + defaultVersion + '/');
