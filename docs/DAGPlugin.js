@@ -20,7 +20,7 @@ var DAGPlugin = function (hook, vm) {
       </select>
       `;
 
-     return html + selector;
+     return html + selector.outerHTML;
   })
 };
 
