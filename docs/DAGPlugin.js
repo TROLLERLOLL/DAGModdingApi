@@ -10,6 +10,7 @@ var DAGPlugin = function (hook, vm) {
 
 function initVersionSelector() {
   // Version selector
+  var versions = window.$docsify.versions;
   var selector = document.createElement('div');
   selector.className = 'version-selector';
   selector.innerHTML = `
