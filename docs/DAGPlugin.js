@@ -32,6 +32,7 @@ var DAGPlugin = function (hook, vm) {
 })();
 
 (function() {
+  console.log(window.location.pathname);
   if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') {
     var defaultVersion = window.$docsify.versions.find((v) => v.default).folder;
     window.location.replace(window.$docsify.home + '#/' + defaultVersion + '/');
