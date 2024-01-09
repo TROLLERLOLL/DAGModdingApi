@@ -8,7 +8,7 @@ var DAGPlugin = function (hook, vm) {
   })
 };
 
-function initVersionSelector() {
+function initVersionSelector(vm) {
   // Version selector
   var versions = window.$docsify.versions;
   var selector = document.createElement('div');
@@ -34,7 +34,7 @@ function initVersionSelector() {
   });
 
   // Adding label
-  var labelText = vm.config.versionSelectorLabel || 'Version:';
+  var labelText = 'Version:';
   var label = document.createElement('span');
   label.className = 'version-selector-label';
   label.textContent = labelText;
