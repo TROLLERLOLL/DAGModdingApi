@@ -3,27 +3,50 @@ var DAGPlugin = function (hook, vm) {
 
   });
 
-  hook.afterEach(function(html) {
-    var selector = document.createElement('div');
-    selector.className = 'version-selector';
-    var versions = window.$docsify.versions;
-    selector.innerHTML = `
-      <select>
-          ${versions
-          .map(
-              (v) =>
-              `<option value="${v.folder}" ${
-                  v.default ? 'selected' : ''
-              }>${v.label}</option>`
-          )
-          .join('')}
-      </select>
-      `;
-
-     return html + selector.outerHTML;
+  hook.ready(function() {
+    var selector = initVersionSelector();
   })
 };
 
+function initVersionSelector() {
+  // Version selector
+  var selector = document.createElement('div');
+  selector.className = 'version-selector';
+  selector.innerHTML = `
+  <select>
+      ${versions
+      .map(
+          (v) =>
+          `<option value="${v.folder}" ${
+              v.default ? 'selected' : ''
+          }>${v.label}</option>`
+      )
+      .join('')}
+  </select>
+  `;
+  
+  // Adding event listener
+  var versionPath = (window.location.pathname && window.location.pathname.split('/')[1]) || defaultVersion;
+  selector.querySelector('select').value = versionPath;
+  selector.querySelector('select').addEventListener('change', function () {
+      updateVersion(this.value);
+  });
+
+  // Adding label
+  var labelText = vm.config.versionSelectorLabel || 'Version:';
+  var label = document.createElement('span');
+  label.className = 'version-selector-label';
+  label.textContent = labelText;
+  selector.insertBefore(label, selector.querySelector('select'));
+  
+  var nameEl = document.querySelector('.app-name');
+  if (nameEl) {
+      var versionLabel = versions.find((v) => v.folder === versionPath).label;
+      nameEl.innerHTML += ` <small>${versionLabel}</small>`;
+      nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
+  }
+  return selector;
+}
 
 (function () {
   // Add plugin to docsify's plugin array
