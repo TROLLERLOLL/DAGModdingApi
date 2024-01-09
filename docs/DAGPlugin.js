@@ -1,12 +1,13 @@
 var DAGPlugin = function (hook, vm) {
   hook.init(function() {
-    console.log("DAGP")
+
   });
 
   hook.afterEach(function(html) {
     var selector = document.createElement('div');
-      selector.className = 'version-selector';
-      selector.innerHTML = `
+    selector.className = 'version-selector';
+    var versions = window.$docsify.versions;
+    selector.innerHTML = `
       <select>
           ${versions
           .map(
