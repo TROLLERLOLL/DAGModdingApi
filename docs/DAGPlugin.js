@@ -49,6 +49,10 @@ function initVersionSelector(vm) {
   return selector;
 }
 
+function updateVersion(version) {
+  window.location.replace(version);
+}
+
 (function () {
   // Add plugin to docsify's plugin array
   $docsify = $docsify || {};
