@@ -11,6 +11,8 @@ var DAGPlugin = function(hook, vm) {
             if (codeblocks[i].getAttribute("data-lang") == "csharp")
                 codeblocks[i].setAttribute("data-lang", "c#");
         }
+
+        
     });
 
     hook.ready(function() {
@@ -24,9 +26,8 @@ function initVersionSelector() {
     var selector = document.createElement('div');
     selector.className = 'version-selector';
     var version = getVersion();
-    console.log(version);
     selector.innerHTML = `
-  <select>
+  <select id="version-selector">
       ${versions
       .map(
           (v) =>
