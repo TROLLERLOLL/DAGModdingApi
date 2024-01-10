@@ -1,4 +1,4 @@
-var DAGPlugin = function(hook, vm) {
+s DAGPlugin = function(hook, vm) {
     hook.beforeEach(function(markdown, next) {
         if(markdown.toLowerCase().startsWith("$settings")) {
             var settingstemp = markdown.split("\n")[0].replace("\r", "").replace(/\$settings/ig, "")
@@ -14,6 +14,8 @@ var DAGPlugin = function(hook, vm) {
                 settings[settingstemp[i].split("=")[0].toLowerCase()] = settingstemp[i].split("=")[1];
             
 manageSettings(settings);
+if(settings.showLastEdited == "true")
+markdown += "\n\n>Last Modify: {docsify-updated}";
 
             var returnval = markdown.split("\n");
 
