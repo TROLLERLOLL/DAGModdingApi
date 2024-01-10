@@ -50,7 +50,7 @@ function initVersionSelector() {
 }
 
 function updateVersion(version) {
-  window.location.replace(version);
+  window.location.replace(window.$docsify.home + "#/" + version);
 }
 
 (function () {
