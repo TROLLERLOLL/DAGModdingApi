@@ -1,7 +1,6 @@
 var DAGPlugin = function (hook, vm) {
   hook.doneEach(function() {
-if(document.getElementById("vlabel") != null)
-   document.getElementById("vlabel").innerText = vm.config.versions.find((v) => window.location.hash == v.folder.replace("#/", "").split("/")[0]).label;
+
 
 /*var nameEl1 = document.querySelector('.app-name');
   if (nameEl1) {
@@ -62,6 +61,9 @@ function initVersionSelector() {
 
 function updateVersion(version) {
   window.location.replace(window.$docsify.home + "#/" + version + "/");
+
+if(document.getElementById("vlabel") != null)
+   document.getElementById("vlabel").innerText = vm.config.versions.find((v) => v.folder === version).label;
 }
 
 (function () {
