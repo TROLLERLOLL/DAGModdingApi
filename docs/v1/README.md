@@ -32,3 +32,4 @@ namespace Example_Mod
 	}
 }
 ```
+{YYYY}/{MM}/{DD}
