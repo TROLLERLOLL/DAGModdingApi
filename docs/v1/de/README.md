@@ -1,8 +1,7 @@
 # Dungeon Adventure Gang Modding API Documentation {{versionLabel}}
 
-We highly recommend you read the docs before starting your development journey
-
-## Example Main Class for new Mods
+Wir empfehlen das lesen der Dokumentation bevor du auf dein entwicklungs Abenteuer aufbrichst.
+## Beispiel Main Class für neue Mods
 
 ```csharp
 using Dungeon_Adventure_Gang.Modding;
