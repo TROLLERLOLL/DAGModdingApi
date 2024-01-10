@@ -12,7 +12,8 @@ var DAGPlugin = function(hook, vm) {
                 codeblocks[i].setAttribute("data-lang", "c#");
         }
 
-        document.getElementById('version-selector').value = getVersion();
+        if (document.getElementById('version-selector'))
+            document.getElementById('version-selector').value = getVersion();
         
     });
 
