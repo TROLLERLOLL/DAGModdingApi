@@ -85,12 +85,12 @@ function updateVersion(version) {
     if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.hash === '/#' || window.location.hash === '/#/') {
         var existiert = false;
         for (var i = 0; i < $docsify.versions.length; i++) {
-            if (window.location.hash == "/#/" + $docsify.versions[i].folder + "/") {
+            if (window.location.hash == "#/" + $docsify.versions[i].folder + "/") {
                 return;
             }
 
 
-            if (window.location.hash == "/#/" + $docsify.versions[i].folder) {
+            if (window.location.hash == "#/" + $docsify.versions[i].folder) {
                 window.location.replace(window.$docsify.home + '#/' + $docsify.versions[i].folder + '/');
                 break;
             }
@@ -101,7 +101,7 @@ function updateVersion(version) {
 })();
 
 function getVersionName() {
-    var loc = window.location.hash.replace("/#/", "").split("/")[0];
+    var loc = window.location.hash.replace("#/", "").split("/")[0];
 
     var name = $docsify.versions.find((v) => v.folder == loc).label;
 
