@@ -1,6 +1,16 @@
 var DAGPlugin = function (hook, vm) {
-  hook.init(function() {
+  hook.beforeEach(function(markdown) {
+if(document.getElementById("vlabel") != null)
+   document.getElementById("vlabel").remove();
 
+var nameEl = document.querySelector('.app-name');
+  if (nameEl) {
+      var versionLabel = vm.config.versions.find((v) => v.folder === versionPath).label;
+      nameEl.innerHTML += ` <small id="vlabel">${versionLabel}</small>`;
+      //nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
+  }
+
+return markdown;
   });
 
   hook.ready(function() {
@@ -43,7 +53,7 @@ function initVersionSelector() {
   var nameEl = document.querySelector('.app-name');
   if (nameEl) {
       var versionLabel = versions.find((v) => v.folder === versionPath).label;
-      nameEl.innerHTML += ` <small>${versionLabel}</small>`;
+      nameEl.innerHTML += ` <small id="vlabel">${versionLabel}</small>`;
       nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
   }
   return selector;
