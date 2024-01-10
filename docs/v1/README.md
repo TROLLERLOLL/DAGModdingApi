@@ -1,4 +1,4 @@
-$Settings ShowLastModified=true;LastModifiedLocation=Bottom
+$Settings ShowLastModified=true
 
 # Dungeon Adventure Gang Modding API Documentation {{versionLabel}}
 
