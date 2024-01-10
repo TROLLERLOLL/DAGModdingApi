@@ -30,7 +30,7 @@ function initVersionSelector() {
       .map(
           (v) =>
           `<option value="${v.folder}" ${
-              v.folder == ${version} ? 'selected' : ''
+              v.folder == version ? 'selected' : ''
           }>${v.label}</option>`
       )
       .join('')}
