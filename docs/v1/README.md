@@ -34,5 +34,3 @@ namespace Example_Mod
 	}
 }
 ```
-
->Last Modify: {docsify-updated}
