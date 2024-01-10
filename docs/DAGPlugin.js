@@ -1,10 +1,13 @@
 var DAGPlugin = function(hook, vm) {
     hook.beforeEach(function(markdown, next) {
         if(markdown.toLowerCase().startsWith("$settings")) {
-            var settingstemp = markdown.split("\n")[0].replace("\r", "").replace(/$settings/i, "")
-            if (settingstemp.startsWith(" "))
-                settingstemp = settingstemp.replace(" ", "");
-                
+            var settingstemp = markdown.split("\n")[0].replace("\r", "").replace(/\$settings/ig, "")
+            if (settingstemp.replace(/ /g, "") != "") {
+                while(settingstemp.startsWith(" ")) {
+                    settingstemp = settingstemp.replace(" ", "");
+                }
+            }
+            
             settingstemp = settingstemp.split(";");
             var settings = {};
             for (var i = 0; i < settingstemp.length; i++)
