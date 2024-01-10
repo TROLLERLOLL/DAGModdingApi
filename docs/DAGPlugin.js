@@ -1,4 +1,11 @@
 var DAGPlugin = function(hook, vm) {
+    hook.beforeEach(function(markdown, next) {
+        if(markdown.ToLower().startsWith("$settings")) {
+            var settings = markdown.split("\n")[0];
+            console.log(settings);
+        }
+    });
+    
     hook.afterEach(function(html, next) {
         next(html.replace(/{{versionLabel}}/g, getVersionName()));
     });
