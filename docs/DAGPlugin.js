@@ -5,7 +5,7 @@ if(document.getElementById("vlabel") != null)
 
 var nameEl = document.querySelector('.app-name');
   if (nameEl) {
-      var versionLabel = vm.config.versions.find((v) => window.location.hash.endsWith(v.folder.replace(/\//g, "")).label;
+      var versionLabel = vm.config.versions.find((v) => window.location.hash.endsWith(v.folder.replace(/\//g, "").replace("#","")).label;
       nameEl.innerHTML += ` <small id="vlabel">${versionLabel}</small>`;
 alert(versionLabel);
       //nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
