@@ -1,8 +1,8 @@
 var DAGPlugin = function(hook, vm) {
-    /*hook.afterEach(function(html, next) {
+    hook.afterEach(function(html, next) {
         alert("5" + getVersionName());
         next(html.replace(/{{versionLabel}}/g, getVersionName()));
-    });*/
+    });
     hook.doneEach(function() {
 
         var codeblocks = document.getElementsByTagName("pre");
@@ -84,7 +84,7 @@ function updateVersion(version) {
 (function() {
     if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.hash === '/#' || window.location.hash === '/#/') {
         var existiert = false;
-        for (var i = 0; $docsify.versions.length; i++) {
+        for (var i = 0; i < $docsify.versions.length; i++) {
             if (window.location.hash == "/#/" + $docsify.versions[i].folder + "/") {
                 return;
             }
