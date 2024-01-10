@@ -1,9 +1,18 @@
 var DAGPlugin = function(hook, vm) {
     hook.beforeEach(function(markdown, next) {
-        if(markdown.ToLower().startsWith("$settings")) {
+        if(markdown.toLowerCase().startsWith("$settings")) {
             var settings = markdown.split("\n")[0];
             console.log(settings);
+            var returnval = markdown.split("\n");
+
+            markdown = "";
+            for (var i = 1; i < returnval.length; i++) 
+                markdown += returnval[i] + "\n";
+
+            next(markdown);
         }
+        else
+            next(markdown);
     });
     
     hook.afterEach(function(html, next) {
