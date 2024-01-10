@@ -110,7 +110,7 @@ function getVersion() {
     var defaultversion = $docsify.versions.find((v) => v.default);
 
     if (version)
-        return version;
+        return version.folder;
 
-    return (defaultversion ? defaultversion : undefined);
+    return (defaultversion ? defaultversion.folder : undefined);
 }
