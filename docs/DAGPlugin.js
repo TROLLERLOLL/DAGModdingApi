@@ -1,7 +1,7 @@
 var DAGPlugin = function (hook, vm) {
   hook.beforeEach(function(html, next) {
 
-next(html.replace(/{{versionLabel}}/g, document.getElementById("vlabel").innerText));
+next(html.replace(/{{versionLabel}}/g, getVersionName()));
 });
   hook.doneEach(function() {
 
@@ -99,3 +99,14 @@ break;
     window.location.replace(window.$docsify.home + '#/' + defaultVersion + '/');
   }
 })();
+
+function getVersionName() {
+var loc = window.location.hash.replace("/#/", "").split("/")[0];
+
+var name = window.$docsify.versions.find((v) => v.folder === loc).label;
+
+if (name)
+  return name;
+ 
+return;
+}
