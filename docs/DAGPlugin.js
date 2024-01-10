@@ -1,5 +1,5 @@
 var DAGPlugin = function (hook, vm) {
-  hook.beforeEach(function(markdown) {
+  hook.doneEach(function() {
 if(document.getElementById("vlabel") != null)
    document.getElementById("vlabel").remove();
 
@@ -11,7 +11,7 @@ alert(versionLabel2);
       //nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
   }
 
-return markdown;
+//return markdown;
   });
 
   hook.ready(function() {
