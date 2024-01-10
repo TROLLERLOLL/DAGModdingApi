@@ -3,11 +3,11 @@ var DAGPlugin = function (hook, vm) {
 if(document.getElementById("vlabel") != null)
    document.getElementById("vlabel").remove();
 
-var nameEl = document.querySelector('.app-name');
-  if (nameEl) {
-      var versionLabel = window.location.hash;// vm.config.versions.find((v) => window.location.hash.includes(v.folder)).label;
-      nameEl.innerHTML += ` <small id="vlabel">${versionLabel}</small>`;
-alert(versionLabel);
+var nameEl1 = document.querySelector('.app-name');
+  if (nameEl1) {
+      var versionLabel2 = window.location.hash;// vm.config.versions.find((v) => window.location.hash.includes(v.folder)).label;
+      nameEl1.innerHTML += ` <small id="vlabel">${versionLabel2}</small>`;
+alert(versionLabel2);
       //nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
   }
 
