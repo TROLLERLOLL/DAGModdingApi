@@ -1,8 +1,8 @@
 var DAGPlugin = function(hook, vm) {
     hook.afterEach(function(html, next) {
-        alert("5" + getVersionName());
         next(html.replace(/{{versionLabel}}/g, getVersionName()));
     });
+    
     hook.doneEach(function() {
 
         var codeblocks = document.getElementsByTagName("pre");
@@ -11,15 +11,6 @@ var DAGPlugin = function(hook, vm) {
             if (codeblocks[i].getAttribute("data-lang") == "csharp")
                 codeblocks[i].setAttribute("data-lang", "c#");
         }
-        /*var nameEl1 = document.querySelector('.app-name');
-          if (nameEl1) {
-              var versionLabel2 = window.location.hash;// vm.config.versions.find((v) => window.location.hash.includes(v.folder)).label;
-              nameEl1.innerHTML += ` <small id="vlabel">${versionLabel2}</small>`;
-        alert(versionLabel2);
-              //nameEl.parentNode.insertBefore(selector, nameEl.nextElementSibling);
-          }
-        */
-        //return markdown;
     });
 
     hook.ready(function() {
@@ -32,13 +23,14 @@ function initVersionSelector() {
     var versions = window.$docsify.versions;
     var selector = document.createElement('div');
     selector.className = 'version-selector';
+    var version = getVersionName();
     selector.innerHTML = `
   <select>
       ${versions
       .map(
           (v) =>
           `<option value="${v.folder}" ${
-              v.default ? 'selected' : ''
+              v.folder == ${version} ? 'selected' : ''
           }>${v.label}</option>`
       )
       .join('')}
