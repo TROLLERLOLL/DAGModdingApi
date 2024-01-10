@@ -60,11 +60,17 @@ function updateVersion(version) {
 })();
 
 (function() {
-  if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') {
+  if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.hash === '/#' || window.location.hash === '/#/') {
 var existiert = false;
 for(var i = 0; window.$docsify.versions.length; i++) {
  if (window.location.hash == "/#/" + window.$docsify.versions[i].folder + "/"){
 return;
+}
+
+
+if (window.location.hash == "/#/" + window.$docsify.versions[i].folder){
+window.location.replace(window.$docsify.home + '#/' + window.$docsify.versions[i].folder + '/');
+break;
 }
 }
     var defaultVersion = window.$docsify.versions.find((v) => v.default).folder;
