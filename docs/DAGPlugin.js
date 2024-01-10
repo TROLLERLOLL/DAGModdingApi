@@ -1,4 +1,4 @@
-s DAGPlugin = function(hook, vm) {
+var DAGPlugin = function(hook, vm) {
     hook.beforeEach(function(markdown, next) {
         if(markdown.toLowerCase().startsWith("$settings")) {
             var settingstemp = markdown.split("\n")[0].replace("\r", "").replace(/\$settings/ig, "")
