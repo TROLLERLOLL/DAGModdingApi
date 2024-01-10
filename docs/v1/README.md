@@ -1,3 +1,5 @@
+$Settings Hi these are plugin settings
+
 # Dungeon Adventure Gang Modding API Documentation {{versionLabel}}
 
 We highly recommend you read the docs before starting your development journey
