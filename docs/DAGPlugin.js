@@ -12,6 +12,9 @@ var DAGPlugin = function(hook, vm) {
                 codeblocks[i].setAttribute("data-lang", "c#");
         }
 
+        if (document.getElementById("vlabel"))
+            document.getElementById("vlabel").innerText = getVersionName(); 
+        
         if (document.getElementById('version-selector'))
             document.getElementById('version-selector').value = getVersion();
         
@@ -42,7 +45,7 @@ function initVersionSelector() {
   `;
 
     // Adding event listener
-    var versionPath = (window.location.hash && window.location.hash.split("?id=")[0].split('/')[1]) || defaultVersion;
+    var versionPath = getVersion();
     selector.querySelector('select').value = versionPath;
     selector.querySelector('select').addEventListener('change', function() {
         updateVersion(this.value);
@@ -66,9 +69,6 @@ function initVersionSelector() {
 
 function updateVersion(version) {
     window.location.replace(window.$docsify.home + "#/" + version + "/");
-
-    if (document.getElementById("vlabel") != null)
-        document.getElementById("vlabel").innerText = window.$docsify.versions.find((v) => v.folder === version).label;
 }
 
 (function() {
