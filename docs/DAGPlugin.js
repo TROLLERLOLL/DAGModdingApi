@@ -23,7 +23,7 @@ function initVersionSelector() {
     var versions = window.$docsify.versions;
     var selector = document.createElement('div');
     selector.className = 'version-selector';
-    var version = getVersionName();
+    var version = getVersion();
     console.log(version);
     selector.innerHTML = `
   <select>
@@ -94,12 +94,23 @@ function updateVersion(version) {
 })();
 
 function getVersionName() {
-    var loc = window.location.hash.replace("#/", "").split("/")[0];
-
+    var version = getVersion();
     var name = $docsify.versions.find((v) => v.folder == loc).label;
 
     if (name)
         return name;
 
     return;
+}
+
+function getVersion() {
+    var loc = window.location.hash.replace("#/", "").split("/")[0];
+
+    var version = $docsify.versions.find((v) => v.folder == loc);
+    var defaultversion = $docsify.versions.find((v) => v.default);
+
+    if (version)
+        return version;
+
+    return (defaultversion ? defaultversion : undefined);
 }
