@@ -1,4 +1,4 @@
-$Settings showLastEdited=true
+$Settings showLastEdited=true;showshit=1
 
 # Dungeon Adventure Gang Modding API Documentation {{versionLabel}}
 
