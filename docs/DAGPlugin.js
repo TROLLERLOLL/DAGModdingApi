@@ -11,10 +11,10 @@ var DAGPlugin = function(hook, vm) {
             settingstemp = settingstemp.split(";");
             var settings = {};
             for (var i = 0; i < settingstemp.length; i++)
-                settings[settingstemp[i].split("=")[0].toLowerCase()] = parseType(settingstemp[i].split("=")[1]);
-
-            console.log(settings);
+                settings[settingstemp[i].split("=")[0].toLowerCase()] = settingstemp[i].split("=")[1];
             
+manageSettings(settings);
+
             var returnval = markdown.split("\n");
 
             markdown = "";
@@ -53,14 +53,8 @@ var DAGPlugin = function(hook, vm) {
     })
 };
 
-function parseType(object) {
-    if (object.toLowerCase() == "true")
-        return true;
-
-    if (object.toLowerCase() == "false")
-        return false;
-
-    return object;
+function manageSettings(settings) {
+alert(settings)
 }
 
 function initVersionSelector() {
