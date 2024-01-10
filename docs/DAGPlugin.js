@@ -60,7 +60,13 @@ function updateVersion(version) {
 })();
 
 (function() {
-  if ((window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') &&  !window.location.hash.endsWith("#/")) {
+  if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') {
+var existiert = false;
+for(var i = 0; window.$docsify.versions.length; i++) {
+ if (window.location.hash == "/#/" + window.$docsify.versions[i].folder + "/"){
+return;
+}
+}
     var defaultVersion = window.$docsify.versions.find((v) => v.default).folder;
     window.location.replace(window.$docsify.home + '#/' + defaultVersion + '/');
   }
