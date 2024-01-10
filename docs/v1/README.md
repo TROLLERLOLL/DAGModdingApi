@@ -1,4 +1,4 @@
-$Settings Hi these are plugin settings
+$Settings ShowLastModified=true;LastModifiedLocation=Bottom
 
 # Dungeon Adventure Gang Modding API Documentation {{versionLabel}}
 
