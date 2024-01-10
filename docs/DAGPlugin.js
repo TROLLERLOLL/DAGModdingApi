@@ -60,7 +60,7 @@ function updateVersion(version) {
 })();
 
 (function() {
-  if (window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') {
+  if ((window.location.pathname === window.$docsify.home || window.location.pathname === window.$docsify.home + 'index.html' || window.location.pathname === window.$docsify.home + '#' || window.location.pathname === window.$docsify.home + '#/') &&  !window.location.hash.endsWith("#/")) {
     var defaultVersion = window.$docsify.versions.find((v) => v.default).folder;
     window.location.replace(window.$docsify.home + '#/' + defaultVersion + '/');
   }
