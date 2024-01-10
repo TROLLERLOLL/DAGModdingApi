@@ -7,7 +7,8 @@ var DAGPlugin = function(hook, vm) {
                     settingstemp = settingstemp.replace(" ", "");
                 }
             }
-            
+            if(!settingstemp.includes(";") && settingstemp.includes("="))
+settingstemp += ";"
             settingstemp = settingstemp.split(";");
             var settings = {};
             for (var i = 0; i < settingstemp.length; i++)
