@@ -1,7 +1,12 @@
 var DAGPlugin = function (hook, vm) {
   hook.doneEach(function() {
 
+var codeblocks = document.getElementsByTagName("pre");
 
+for (var i = 0; i < codeblocks.length; i++) {
+ if (codeblocks[i].getAttribute("data-lang") == "csharp") 
+codeblocks[i].setAttribute("data-lang", "c#");
+}
 /*var nameEl1 = document.querySelector('.app-name');
   if (nameEl1) {
       var versionLabel2 = window.location.hash;// vm.config.versions.find((v) => window.location.hash.includes(v.folder)).label;
@@ -61,7 +66,7 @@ function initVersionSelector() {
 
 function updateVersion(version) {
   window.location.replace(window.$docsify.home + "#/" + version + "/");
-alert(version)
+
 if(document.getElementById("vlabel") != null)
    document.getElementById("vlabel").innerText = window.$docsify.versions.find((v) => v.folder === version).label;
 }
