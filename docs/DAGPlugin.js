@@ -1,8 +1,8 @@
 var DAGPlugin = function(hook, vm) {
-    hook.afterEach(function(html, next) {
+    /*hook.afterEach(function(html, next) {
         alert("5" + getVersionName());
         next(html.replace(/{{versionLabel}}/g, getVersionName()));
-    });
+    });*/
     hook.doneEach(function() {
 
         var codeblocks = document.getElementsByTagName("pre");
