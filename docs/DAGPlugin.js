@@ -103,7 +103,7 @@ break;
 function getVersionName() {
 var loc = window.location.hash.replace("/#/", "").split("/")[0];
 
-var name = window.$docsify.versions.find((v) => v.folder === loc).label;
+var name = window.$docsify.versions.find((v)=> v.folder == loc).label;
 
 if (name)
   return name;
