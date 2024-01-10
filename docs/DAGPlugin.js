@@ -4,7 +4,7 @@ var DAGPlugin = function(hook, vm) {
             var settingstemp = markdown.split("\n")[0].replace("\r", "").replace(/$settings /ig, "").split(";");
             var settings = {};
             for (var i = 0; i < settingstemp.length; i++)
-                settings[settingstemp[i].split("=")[0].toLowerCase()] = settingstemp[i].split("=")[1];
+                settings[settingstemp[i].split("=")[0].toLowerCase()] = parseType(settingstemp[i].split("=")[1]);
 
             console.log(settings);
             
@@ -45,6 +45,16 @@ var DAGPlugin = function(hook, vm) {
         var selector = initVersionSelector();
     })
 };
+
+function parseType(object) {
+    if (object.toLowerCase() == "true")
+        return true;
+
+    if (object.toLowerCase() == "false")
+        return false;
+
+    return object;
+}
 
 function initVersionSelector() {
     // Version selector
