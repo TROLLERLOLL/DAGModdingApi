@@ -3,7 +3,7 @@ var DAGPlugin = function (hook, vm) {
 alert("5" + getVersionName());
 return (html.replace(/{{versionLabel}}/g, getVersionName()));
 });
-  hook.doneEasch(function() {
+  hook.ready(function() {
 
 var codeblocks = document.getElementsByTagName("pre");
 
