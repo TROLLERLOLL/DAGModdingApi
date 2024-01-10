@@ -63,7 +63,7 @@ function updateVersion(version) {
   window.location.replace(window.$docsify.home + "#/" + version + "/");
 alert(version)
 if(document.getElementById("vlabel") != null)
-   document.getElementById("vlabel").innerText = vm.config.versions.find((v) => v.folder === version).label;
+   document.getElementById("vlabel").innerText = window.$docsify.versions.find((v) => v.folder === version).label;
 }
 
 (function () {
