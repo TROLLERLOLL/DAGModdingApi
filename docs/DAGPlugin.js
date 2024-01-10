@@ -1,7 +1,7 @@
 var DAGPlugin = function (hook, vm) {
   hook.afterEach(function(html) {
 
-return html.replace(/\{{versionLabel}}/g, document.getElementById("vlabel").innerText);
+return html.replace(/{{versionLabel}}/g, document.getElementById("vlabel").innerText);
 });
   hook.doneEach(function() {
 
