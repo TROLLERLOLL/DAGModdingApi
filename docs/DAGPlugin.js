@@ -24,6 +24,7 @@ function initVersionSelector() {
     var selector = document.createElement('div');
     selector.className = 'version-selector';
     var version = getVersionName();
+    console.log(version);
     selector.innerHTML = `
   <select>
       ${versions
