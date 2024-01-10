@@ -54,7 +54,7 @@ manageSettings(settings);
 };
 
 function manageSettings(settings) {
-alert(settings)
+//alert(settings)
 }
 
 function initVersionSelector() {
