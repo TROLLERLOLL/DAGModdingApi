@@ -95,7 +95,7 @@ function updateVersion(version) {
 
 function getVersionName() {
     var version = getVersion();
-    var name = $docsify.versions.find((v) => v.folder == loc).label;
+    var name = $docsify.versions.find((v) => v.folder == version).label;
 
     if (name)
         return name;
