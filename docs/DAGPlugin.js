@@ -15,7 +15,7 @@ settingstemp += ";"
                 settings[settingstemp[i].split("=")[0].toLowerCase()] = settingstemp[i].split("=")[1];
             
 manageSettings(settings);
-if(settings.showLastEdited == "true")
+if(settings.showlastedited == "true")
 markdown += "\n\n>Last Modify: {docsify-updated}";
 
             var returnval = markdown.split("\n");
