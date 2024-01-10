@@ -1,7 +1,7 @@
 var DAGPlugin = function (hook, vm) {
-  hook.beforeEach(function(html, next) {
+  hook.afterEach(function(html) {
 alert(getVersionName());
-next(html.replace(/{{versionLabel}}/g, getVersionName()));
+return (html.replace(/{{versionLabel}}/g, getVersionName()));
 });
   hook.doneEach(function() {
 
