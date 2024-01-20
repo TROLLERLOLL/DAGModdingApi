@@ -1,4 +1,3 @@
-[#/v1/de/](Deutsch)
-hiah
-\n
+[Deutsch](/v1/)
+<br>
 [#/v1/](!&!*!)

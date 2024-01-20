@@ -1,6 +1,6 @@
-$Settings showLastEdited=true;showshit=1
+{P Examples}
 
-# Dungeon Adventure Gang Modding API Documentation {{versionLabel}}
+# Dungeon Adventure Gang Modding API Documentation {vname}
 
 We highly recommend you read the docs before starting your development journey
 
@@ -34,6 +34,6 @@ namespace Example_Mod
 	}
 }
 ```
-
+{P Random}
 # Api usage
 important text
